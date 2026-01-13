@@ -1,10 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5nhjhw7dcfdl"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_po0nb"]
+[ext_resource type="Texture2D" uid="uid://c7wepjosiixmv" path="res://resource/texture/cloud.png" id="1_oabld"]
 
 [node name="Background" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Sky" type="Parallax2D" parent="."]
+repeat_size = Vector2(1023.6, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_po0nb")
+[node name="Sky" type="Sprite2D" parent="Sky"]
+position = Vector2(515, 515)
+texture = ExtResource("1_oabld")
