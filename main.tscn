@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c50xb1g0r076h"]
+[gd_scene load_steps=3 format=3 uid="uid://c50xb1g0r076h"]
 
-[ext_resource type="PackedScene" uid="uid://b5nhjhw7dcfdl" path="res://background.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b5nhjhw7dcfdl" path="res://zones/backgrounds/background.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://vdelum737ihm" path="res://zones/backgrounds/ground.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Backgrounds" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Ground" parent="." instance=ExtResource("2_0xm2m")]
+z_index = 10

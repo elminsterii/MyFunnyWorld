@@ -5,7 +5,7 @@ radius = 10.198039
 
 [node name="Character" type="RigidBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Image" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vu45j")

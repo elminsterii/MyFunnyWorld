@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5nhjhw7dcfdl"]
+
+[ext_resource type="Texture2D" uid="uid://dso4j4m7gyjij" path="res://texture/sky.png" id="1_oabld"]
+[ext_resource type="Texture2D" uid="uid://lgatujowm053" path="res://texture/cloud.png" id="2_i7s6n"]
+[ext_resource type="Shader" uid="uid://txxmavskgcqr" path="res://zones/backgrounds/background.gdshader" id="2_xehqc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xehqc"]
+shader = ExtResource("2_xehqc")
+shader_parameter/threshold = 0.71600003401
+shader_parameter/softness = 0.226000010735
+
+[node name="Backgrounds" type="Node2D"]
+
+[node name="Sky" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, 300)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
+
+[node name="Image" type="Sprite2D" parent="Sky"]
+texture = ExtResource("1_oabld")
+
+[node name="Cloud" type="Parallax2D" parent="."]
+z_index = 10
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -200)
+repeat_size = Vector2(1024, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 3
+
+[node name="Image" type="Sprite2D" parent="Cloud"]
+material = SubResource("ShaderMaterial_xehqc")
+texture = ExtResource("2_i7s6n")

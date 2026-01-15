@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://vdelum737ihm"]
+
+[ext_resource type="Texture2D" uid="uid://cdr1s5alp8juf" path="res://texture/ground.png" id="1_qf1tf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qf1tf"]
+friction = 2.0
+bounce = 0.2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qf1tf"]
+distance = -605.0
+
+[node name="Ground" type="Node2D"]
+
+[node name="Ground" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(500, 0)
+repeat_times = 3
+
+[node name="Ground" type="StaticBody2D" parent="Ground"]
+physics_material_override = SubResource("PhysicsMaterial_qf1tf")
+
+[node name="Image" type="Sprite2D" parent="Ground/Ground"]
+texture_repeat = 2
+position = Vector2(251, 491)
+texture = ExtResource("1_qf1tf")
+region_rect = Rect2(0, 0, 0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground"]
+shape = SubResource("WorldBoundaryShape2D_qf1tf")
