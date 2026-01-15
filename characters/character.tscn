@@ -1,11 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh3raq8dbjeja"]
+[gd_scene load_steps=5 format=3 uid="uid://dh3raq8dbjeja"]
+
+[ext_resource type="Texture2D" uid="uid://bvtv7lcgv32ef" path="res://characters/images/char.png" id="1_54qew"]
+[ext_resource type="Script" uid="uid://05x6j4ello8i" path="res://characters/character.gd" id="1_qqr4u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_54qew"]
+friction = 1.5
+bounce = 0.35
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vu45j"]
-radius = 10.198039
+radius = 63.1981
 
 [node name="Character" type="RigidBody2D"]
+physics_interpolation_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_54qew")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qqr4u")
 
 [node name="Image" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(133.75002, 200.75)
+scale = Vector2(0.30900002, 0.3350001)
+texture = ExtResource("1_54qew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(134, 208)
 shape = SubResource("CircleShape2D_vu45j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+position_smoothing_enabled = true
