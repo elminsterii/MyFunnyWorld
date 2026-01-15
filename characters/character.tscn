@@ -19,14 +19,15 @@ script = ExtResource("1_qqr4u")
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 20
-position = Vector2(133.75002, 200.75)
+position = Vector2(-2.9999695, -2.9999695)
 scale = Vector2(0.30900002, 0.3350001)
 texture = ExtResource("1_54qew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(134, 208)
 shape = SubResource("CircleShape2D_vu45j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
-position_smoothing_enabled = true
+physics_interpolation_mode = 1
+zoom = Vector2(0.8, 0.8)
+process_callback = 0
+limit_bottom = 1024
