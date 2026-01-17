@@ -1,8 +1,16 @@
 extends RigidBody2D
 
+@export var char_data: CharacterData
 @export var launch_speed: float = 2.0
 var is_dragging: bool = false
 var drag_start_pos: Vector2
+
+func _ready():
+	if char_data:
+		mass = char_data.mass
+		physics_material_override = PhysicsMaterial.new()
+		physics_material_override.friction = char_data.friction
+		physics_material_override.bounce = char_data.bounce
 
 func _input(event):
 	if event is InputEventMouseButton:

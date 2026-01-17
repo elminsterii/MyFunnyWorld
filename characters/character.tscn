@@ -1,21 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh3raq8dbjeja"]
+[gd_scene load_steps=6 format=3 uid="uid://dh3raq8dbjeja"]
 
-[ext_resource type="Texture2D" uid="uid://bvtv7lcgv32ef" path="res://characters/images/char.png" id="1_54qew"]
+[ext_resource type="Texture2D" uid="uid://bvtv7lcgv32ef" path="res://characters/test_bird/images/char.png" id="1_54qew"]
 [ext_resource type="Script" uid="uid://05x6j4ello8i" path="res://characters/character.gd" id="1_qqr4u"]
+[ext_resource type="Resource" uid="uid://lbhigwl2aylq" path="res://characters/test_bird/test_bird_character_data.gd.tres" id="2_3fwhk"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_54qew"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqr4u"]
 friction = 1.5
-bounce = 0.35
+rough = true
+bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vu45j"]
 radius = 63.1981
 
 [node name="Character" type="RigidBody2D"]
 physics_interpolation_mode = 1
-physics_material_override = SubResource("PhysicsMaterial_54qew")
+physics_material_override = SubResource("PhysicsMaterial_qqr4u")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_qqr4u")
+char_data = ExtResource("2_3fwhk")
+launch_speed = 3.0
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 20
