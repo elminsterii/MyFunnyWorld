@@ -10,5 +10,6 @@
 
 [node name="Ground" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 10
+position = Vector2(300, 950)
 
 [node name="Character" parent="." instance=ExtResource("3_h2yge")]

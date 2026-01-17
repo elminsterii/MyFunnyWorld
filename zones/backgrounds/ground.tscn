@@ -7,23 +7,23 @@ friction = 2.0
 bounce = 0.2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qf1tf"]
-distance = -605.0
 
 [node name="Ground" type="Node2D"]
 
-[node name="Ground" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0, 0)
+[node name="PhysicalGround" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_qf1tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicalGround"]
+shape = SubResource("WorldBoundaryShape2D_qf1tf")
+
+[node name="GroundImage" type="Parallax2D" parent="."]
 repeat_size = Vector2(500, 0)
 repeat_times = 3
 
-[node name="Ground" type="StaticBody2D" parent="Ground"]
-physics_material_override = SubResource("PhysicsMaterial_qf1tf")
-
-[node name="Image" type="Sprite2D" parent="Ground/Ground"]
+[node name="Image" type="Sprite2D" parent="GroundImage"]
 texture_repeat = 2
-position = Vector2(251, 491)
+position = Vector2(0, -120)
 texture = ExtResource("1_qf1tf")
+centered = false
+offset = Vector2(0, -270)
 region_rect = Rect2(0, 0, 0, 500)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground"]
-shape = SubResource("WorldBoundaryShape2D_qf1tf")
