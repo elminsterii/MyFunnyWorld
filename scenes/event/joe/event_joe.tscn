@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwg1ocmxsqkis"]
+
+[ext_resource type="Script" uid="uid://djiaielo1v060" path="res://scenes/event/joe/event_joe.gd" id="1_5ppjh"]
+[ext_resource type="Resource" uid="uid://6h0hkbfwolxr" path="res://scenes/event/joe/joe_event_data.tres" id="2_25htn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48ncj"]
+
+[node name="Event" type="Area2D"]
+script = ExtResource("1_5ppjh")
+event_data = ExtResource("2_25htn")
+
+[node name="Image" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_48ncj")

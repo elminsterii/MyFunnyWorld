@@ -1,12 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://c50xb1g0r076h"]
 
-[ext_resource type="PackedScene" uid="uid://b5nhjhw7dcfdl" path="res://zones/backgrounds/background.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b5nhjhw7dcfdl" path="res://scenes/background/background.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bndx8fnlqqjny" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="PackedScene" uid="uid://vdelum737ihm" path="res://zones/backgrounds/ground.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dh3raq8dbjeja" path="res://characters/character.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://0k1xja48jf3o" path="res://HUD.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://7eaycq784fpa" path="res://characters/joe.gd" id="5_7mycd"]
-[ext_resource type="Resource" uid="uid://dt2g4y8fecjra" path="res://characters/definitions/joe_character_data.tres" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://vdelum737ihm" path="res://scenes/ground/ground.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dh3raq8dbjeja" path="res://scenes/character/character.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://0k1xja48jf3o" path="res://scenes/hud/HUD.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cwg1ocmxsqkis" path="res://scenes/event/joe/event_joe.tscn" id="6_7mycd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7mycd"]
+bounce = 0.5
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -15,17 +17,16 @@ script = ExtResource("1_lquwl")
 
 [node name="Ground" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 10
-position = Vector2(300, 0)
+position = Vector2(300, -30)
 
 [node name="Character" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(200, -300)
+z_index = 10
+position = Vector2(180, -300)
+physics_material_override = SubResource("PhysicsMaterial_7mycd")
 
-[node name="Joe" parent="." instance=ExtResource("3_h2yge")]
-z_index = 5
-position = Vector2(50, 0)
-script = ExtResource("5_7mycd")
-char_data = ExtResource("6_272bh")
-power_multiplier = 10.0
-max_drag_distance = 200.0
+[node name="Event_Joe" parent="." instance=ExtResource("6_7mycd")]
+z_index = 10
+position = Vector2(60, -130)
+scale = Vector2(0.5, 0.5)
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3raq8dbjeja"]
+
+[ext_resource type="Script" uid="uid://05x6j4ello8i" path="res://scenes/character/character.gd" id="1_qqr4u"]
+[ext_resource type="Resource" uid="uid://lbhigwl2aylq" path="res://scenes/character/test_bird/test_bird_character_data.gd.tres" id="2_3fwhk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqr4u"]
+friction = 1.5
+rough = true
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu45j"]
+radius = 63.1981
+
+[node name="Character" type="RigidBody2D"]
+physics_interpolation_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_qqr4u")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qqr4u")
+char_data = ExtResource("2_3fwhk")
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 20
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vu45j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+zoom = Vector2(0.8, 0.8)
+process_callback = 0
+limit_bottom = 0

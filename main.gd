@@ -3,7 +3,7 @@ extends Node2D
 # 增加 accel 參數
 signal stats_updated(dist: float, height: float, speed: float, accel: float)
 
-@onready var joe = $Joe
+@onready var joe = $Event_Joe
 @onready var character = $Character
 @onready var ground_node = $Ground/PhysicalGround
 @onready var hud = $HUD

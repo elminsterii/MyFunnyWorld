@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventData" load_steps=3 format=3 uid="uid://6h0hkbfwolxr"]
+
+[ext_resource type="Texture2D" uid="uid://d4xgkhbi4rfh" path="res://scenes/event/joe/images/joe_standby.png" id="1_0jvbg"]
+[ext_resource type="Script" uid="uid://d3ph6hcbwnmgk" path="res://scenes/event/definitions/def_event_data.gd" id="1_o78jx"]
+
+[resource]
+script = ExtResource("1_o78jx")
+power_multiplier = 10
+event_image = ExtResource("1_0jvbg")
+metadata/_custom_type_script = "uid://d3ph6hcbwnmgk"
