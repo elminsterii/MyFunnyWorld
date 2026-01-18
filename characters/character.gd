@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@onready var sprite = $Image
+
 @export var char_data: CharacterData
 @export var launch_speed: float = 2.0
 var is_dragging: bool = false
@@ -14,6 +16,9 @@ func _ready():
 		physics_material_override = PhysicsMaterial.new()
 		physics_material_override.friction = char_data.friction
 		physics_material_override.bounce = char_data.bounce
+		
+	if char_data.character_image:
+			sprite.texture = char_data.character_image
 
 func _input(event):
 	if event is InputEventMouseButton:

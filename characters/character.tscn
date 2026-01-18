@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh3raq8dbjeja"]
+[gd_scene load_steps=5 format=3 uid="uid://dh3raq8dbjeja"]
 
-[ext_resource type="Texture2D" uid="uid://bvtv7lcgv32ef" path="res://characters/test_bird/images/char.png" id="1_54qew"]
 [ext_resource type="Script" uid="uid://05x6j4ello8i" path="res://characters/character.gd" id="1_qqr4u"]
 [ext_resource type="Resource" uid="uid://lbhigwl2aylq" path="res://characters/test_bird/test_bird_character_data.gd.tres" id="2_3fwhk"]
 
@@ -25,7 +24,6 @@ launch_speed = 10.0
 z_index = 20
 position = Vector2(-2.9999695, -2.9999695)
 scale = Vector2(0.30900002, 0.3350001)
-texture = ExtResource("1_54qew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vu45j")

@@ -5,5 +5,5 @@ class_name CharacterData
 @export var mass: float = 0.7        # 重量
 @export var friction: float = 0.3    # 摩擦力
 @export var bounce: float = 0.3      # 彈性
-@export var texture: Texture2D       # 角色外觀
+@export var character_image: Texture2D       # 角色外觀
 @export var body_height: float = 46.0

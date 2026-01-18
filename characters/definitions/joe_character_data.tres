@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://dt2g4y8fecjra"]
+
+[ext_resource type="Texture2D" uid="uid://xumqrq0tkksa" path="res://characters/joe/images/joe_standby.png" id="1_ac3ix"]
+[ext_resource type="Script" uid="uid://tdd32yvwst7t" path="res://characters/definitions/character_data.gd" id="1_wobij"]
+
+[resource]
+script = ExtResource("1_wobij")
+mass = 1.0
+friction = 1.0
+bounce = 0.1
+character_image = ExtResource("1_ac3ix")
+body_height = 126.0
+metadata/_custom_type_script = "uid://tdd32yvwst7t"
