@@ -4,15 +4,20 @@ extends Node2D
 signal stats_updated(dist: float, height: float, speed: float, accel: float)
 
 @onready var character = $Character
+@onready var ground_node = $Ground/PhysicalGround
 @onready var hud = $HUD
 
 var start_pos: Vector2
 var last_velocity: Vector2 = Vector2.ZERO # 用來存上一影格的速度
+var char_height_offset: int
 
 func _ready() -> void:
+	if character.get_char_data():
+		var char_data = character.get_char_data()
+		char_height_offset = char_data.body_height / 2.0
+		
 	# 1. 取得節點
 	var camera = $Character/Camera2D
-	var ground_node = $Ground/PhysicalGround  # 指向你的地板節點
 	
 	# 2. 自動設定 Limit
 	# global_position.y 就是地板在世界中的絕對高度
@@ -28,9 +33,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not character: return
+	
 	# 1. 計算基本數值
 	var dist = (character.global_position.x - start_pos.x) / 10.0
-	var height = (start_pos.y - character.global_position.y) / 10.0
+	var current_feet_y = character.global_position.y + char_height_offset
+	var height = ground_node.global_position.y - current_feet_y
 	
 	# 2. 計算速度 (linear_velocity 是 Vector2)
 	var current_velocity = character.linear_velocity

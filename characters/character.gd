@@ -5,6 +5,9 @@ extends RigidBody2D
 var is_dragging: bool = false
 var drag_start_pos: Vector2
 
+func get_char_data():
+	return char_data
+
 func _ready():
 	if char_data:
 		mass = char_data.mass

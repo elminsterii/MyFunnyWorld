@@ -7,4 +7,5 @@ script = ExtResource("1_dlhfq")
 mass = 1.0
 friction = 1.0
 bounce = 0.5
+body_height = 126.0
 metadata/_custom_type_script = "uid://tdd32yvwst7t"
