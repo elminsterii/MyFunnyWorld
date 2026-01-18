@@ -3,6 +3,7 @@ extends Node2D
 # 增加 accel 參數
 signal stats_updated(dist: float, height: float, speed: float, accel: float)
 
+@onready var joe = $Joe
 @onready var character = $Character
 @onready var ground_node = $Ground/PhysicalGround
 @onready var hud = $HUD
@@ -30,6 +31,16 @@ func _ready() -> void:
 		start_pos = character.global_position
 		# 連接信號到 HUD 的接收端
 		self.stats_updated.connect(hud._on_stats_updated)
+		
+	setup_connection()
+
+func setup_connection():
+	if is_instance_valid(character) and is_instance_valid(joe):
+		# 直接把施力者的訊號「插」進受力者的函式裡
+		# 這樣當 force_released 發出時，會直接帶著 Vector2 參數去跑 apply_launch_force
+		joe.force_released.connect(character.apply_launch_force)
+		#force_controller.aim_started.connect(character.prepare_attack)
+		print("物理連線已建立：", joe.name, " -> ", character.name)
 
 func _physics_process(_delta: float) -> void:
 	if not character: return

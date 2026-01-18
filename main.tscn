@@ -25,6 +25,7 @@ z_index = 5
 position = Vector2(50, 0)
 script = ExtResource("5_7mycd")
 char_data = ExtResource("6_272bh")
-hit_force = 800.0
+power_multiplier = 10.0
+max_drag_distance = 200.0
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]

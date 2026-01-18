@@ -1,11 +1,9 @@
+# character.gd
 extends RigidBody2D
 
+@onready var anim = $AnimationPlayer
 @onready var sprite = $Image
-
 @export var char_data: CharacterData
-@export var launch_speed: float = 2.0
-var is_dragging: bool = false
-var drag_start_pos: Vector2
 
 func get_char_data():
 	return char_data
@@ -22,25 +20,18 @@ func _ready():
 			freeze = true
 			
 	if char_data.character_image:
-			sprite.texture = char_data.character_image
+		sprite.texture = char_data.character_image
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				# 開始拉動
-				is_dragging = true
-				drag_start_pos = get_global_mouse_position()
-			else:
-				# 放開彈射
-				is_dragging = false
-				var drag_end_pos = get_global_mouse_position()
-				var launch_vector = (drag_start_pos - drag_end_pos) * launch_speed
-				
-				# 施加一個瞬間的力
-				apply_central_impulse(launch_vector)
+# --- 公開接口 (Public Interface) ---
+func apply_launch_force(force: Vector2):
+	print("收到指令，準備執行力道：", force)
+	
+	# 決定怎麼「演出」這個受力過程
+	if has_node("AnimationPlayer"):
+		anim.play("attack") # 播放動畫，動畫會在適當時機呼叫 execute_physics
+	else:
+		_execute_physics(force) # 沒有動畫就直接飛
 
-#func _integrate_forces(state):
-	## 如果你想限制最大速度，可以在這裡寫
-	#if state.linear_velocity.length() > 1500:
-		#state.linear_velocity = state.linear_velocity.normalized() * 1500
+func _execute_physics(force: Vector2):
+	freeze = false
+	apply_central_impulse(force)
