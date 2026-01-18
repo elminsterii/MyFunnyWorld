@@ -10,6 +10,17 @@ var start_pos: Vector2
 var last_velocity: Vector2 = Vector2.ZERO # 用來存上一影格的速度
 
 func _ready() -> void:
+	# 1. 取得節點
+	var camera = $Character/Camera2D
+	var ground_node = $Ground/PhysicalGround  # 指向你的地板節點
+	
+	# 2. 自動設定 Limit
+	# global_position.y 就是地板在世界中的絕對高度
+	camera.limit_bottom = ground_node.global_position.y
+	
+	# 3. 額外保險：讓攝影機不要拍到太左邊（起點）
+	camera.limit_left = 0
+	
 	if character and hud:
 		start_pos = character.global_position
 		# 連接信號到 HUD 的接收端
@@ -17,7 +28,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not character: return
-	
 	# 1. 計算基本數值
 	var dist = (character.global_position.x - start_pos.x) / 10.0
 	var height = (start_pos.y - character.global_position.y) / 10.0

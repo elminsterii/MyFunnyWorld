@@ -34,4 +34,4 @@ shape = SubResource("CircleShape2D_vu45j")
 physics_interpolation_mode = 1
 zoom = Vector2(0.8, 0.8)
 process_callback = 0
-limit_bottom = 1024
+limit_bottom = 0

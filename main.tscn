@@ -13,8 +13,9 @@ script = ExtResource("1_lquwl")
 
 [node name="Ground" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 10
-position = Vector2(300, 950)
+position = Vector2(300, 0)
 
 [node name="Character" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(100, -300)
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
