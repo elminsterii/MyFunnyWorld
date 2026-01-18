@@ -34,7 +34,7 @@ func _input(event):
 		if event.pressed:
 			is_dragging = true
 			drag_start_pos = get_global_mouse_position()
-			emit_signal("aim_started")
+			#emit_signal("aim_started")
 			
 		elif is_dragging: # 放開滑鼠
 			is_dragging = false

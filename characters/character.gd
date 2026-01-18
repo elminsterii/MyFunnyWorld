@@ -1,7 +1,7 @@
 # character.gd
 extends RigidBody2D
 
-@onready var anim = $AnimationPlayer
+#@onready var anim = $AnimationPlayer
 @onready var sprite = $Image
 @export var char_data: CharacterData
 
@@ -27,10 +27,10 @@ func apply_launch_force(force: Vector2):
 	print("收到指令，準備執行力道：", force)
 	
 	# 決定怎麼「演出」這個受力過程
-	if has_node("AnimationPlayer"):
-		anim.play("attack") # 播放動畫，動畫會在適當時機呼叫 execute_physics
-	else:
-		_execute_physics(force) # 沒有動畫就直接飛
+	#if has_node("AnimationPlayer"):
+		#anim.play("attack") # 播放動畫，動畫會在適當時機呼叫 execute_physics
+	#else:
+	_execute_physics(force) # 沒有動畫就直接飛
 
 func _execute_physics(force: Vector2):
 	freeze = false
