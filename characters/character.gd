@@ -31,7 +31,7 @@ func _input(event):
 				# 施加一個瞬間的力
 				apply_central_impulse(launch_vector)
 
-func _integrate_forces(state):
-	# 如果你想限制最大速度，可以在這裡寫
-	if state.linear_velocity.length() > 1500:
-		state.linear_velocity = state.linear_velocity.normalized() * 1500
+#func _integrate_forces(state):
+	## 如果你想限制最大速度，可以在這裡寫
+	#if state.linear_velocity.length() > 1500:
+		#state.linear_velocity = state.linear_velocity.normalized() * 1500
