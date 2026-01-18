@@ -31,7 +31,7 @@ func _ready() -> void:
 		# 連接信號到 HUD 的接收端
 		self.stats_updated.connect(hud._on_stats_updated)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not character: return
 	
 	# 1. 計算基本數值
@@ -45,15 +45,15 @@ func _physics_process(delta: float) -> void:
 	
 	# 3. 計算加速度 (速度變化量 / 時間差)
 	# 我們取向量差的長度，代表整體的加速度大小
-	var velocity_change = current_velocity - last_velocity
-	var accel = (velocity_change.length() / delta) / 10.0
+	#var velocity_change = current_velocity - last_velocity
+	#var accel = (velocity_change.length() / delta) / 10.0
 	
 	# 如果速度幾乎沒變，強制歸零避免浮點數抖動
-	if velocity_change.length() < 0.1:
-		accel = 0.0
+	#if velocity_change.length() < 0.1:
+		#accel = 0.0
 		
 	# 4. 發送信號
-	stats_updated.emit(dist, height, speed, accel)
+	stats_updated.emit(dist, height, speed)
 	
 	# 5. 紀錄當前速度，供下一影格使用
 	last_velocity = current_velocity
