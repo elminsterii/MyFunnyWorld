@@ -7,3 +7,5 @@ class_name CharacterData
 @export var bounce: float = 0.3      # 彈性
 @export var character_image: Texture2D       # 角色外觀
 @export var body_height: float = 46.0
+@export var lock_rotation: bool = false  # 是否防止滾動
+@export var freeze_position: bool = false # 是否固定在原地

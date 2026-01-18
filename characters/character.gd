@@ -16,7 +16,11 @@ func _ready():
 		physics_material_override = PhysicsMaterial.new()
 		physics_material_override.friction = char_data.friction
 		physics_material_override.bounce = char_data.bounce
+		lock_rotation = char_data.lock_rotation
 		
+		if char_data.freeze_position:
+			freeze = true
+			
 	if char_data.character_image:
 			sprite.texture = char_data.character_image
 

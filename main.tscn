@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c50xb1g0r076h"]
+[gd_scene load_steps=8 format=3 uid="uid://c50xb1g0r076h"]
 
 [ext_resource type="PackedScene" uid="uid://b5nhjhw7dcfdl" path="res://zones/backgrounds/background.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bndx8fnlqqjny" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://vdelum737ihm" path="res://zones/backgrounds/ground.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dh3raq8dbjeja" path="res://characters/character.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://0k1xja48jf3o" path="res://HUD.tscn" id="4_1bvp3"]
-[ext_resource type="Resource" uid="uid://dt2g4y8fecjra" path="res://characters/definitions/joe_character_data.tres" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://7eaycq784fpa" path="res://characters/joe.gd" id="5_7mycd"]
+[ext_resource type="Resource" uid="uid://dt2g4y8fecjra" path="res://characters/definitions/joe_character_data.tres" id="6_272bh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -22,7 +23,8 @@ position = Vector2(200, -300)
 [node name="Joe" parent="." instance=ExtResource("3_h2yge")]
 z_index = 5
 position = Vector2(50, 0)
-char_data = ExtResource("5_7mycd")
-launch_speed = 0.0
+script = ExtResource("5_7mycd")
+char_data = ExtResource("6_272bh")
+hit_force = 800.0
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
